@@ -8,11 +8,12 @@ const nextConfig = {
       }
     ]
   },
+  env: {
+    TITLE: 'Hacker News',
+  },
   reactStrictMode: true,
   // swcMinify: false,
-  productionBrowserSourceMaps: false,
-  experimental: {
-  }
+  productionBrowserSourceMaps: false
 }
 
 module.exports = nextConfig

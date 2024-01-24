@@ -4,7 +4,7 @@ import SystemInfo from 'components/server-info'
 import Footer from 'components/footer'
 
 export const metadata = {
-  title: 'Next.js App Router + React Server Components Demo',
+  title: process.env.TITLE,
   description: 'Hacker News clone built with the Next.js App Router.',
   robots: {
     index: true,
@@ -29,3 +29,4 @@ export default function RootLayout({ children }) {
     </html>
   )
 }
+

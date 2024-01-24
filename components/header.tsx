@@ -1,5 +1,6 @@
-import styles from './header.module.css'
 import Link from 'next/link'
+
+import styles from './header.module.css'
 
 const navItems = [
   { title: 'new' },
@@ -21,20 +22,20 @@ export default function Header() {
           </span>
           <span className={styles['site-title']}>Hacker Next</span>
         </Link>
-        <div className={styles.nav}>
-          <ul className={styles['nav-ul']}>
-            {navItems.map(({ title }, index) => (
-              <li key={index}>
-                <span>{title}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/*<div className={styles.nav}>*/}
+        {/*  <ul className={styles['nav-ul']}>*/}
+        {/*    {navItems.map(({ title }, index) => (*/}
+        {/*      <li key={index}>*/}
+        {/*        <span>{title}</span>*/}
+        {/*      </li>*/}
+        {/*    ))}*/}
+        {/*  </ul>*/}
+        {/*</div>*/}
       </div>
       <div className={styles.right}>
-        <span className={styles.login}>
-          login
-        </span>
+        {/*<span className={styles.login}>*/}
+        {/*  login*/}
+        {/*</span>*/}
       </div>
     </header>
   )
