@@ -22,6 +22,7 @@ Temporary Items
 
 # User-specific stuff
 .idea
+/.idea/
 
 # Thumbnails
 ._*
@@ -68,3 +69,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
