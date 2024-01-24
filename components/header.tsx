@@ -17,7 +17,7 @@ export default function Header() {
       <div className={styles.left}>
         <Link href="/">
           <span className={styles.logo}>
-            <span className={styles.n}>N</span>
+            <span className={styles.n}>HN</span>
           </span>
           <span className={styles['site-title']}>Hacker Next</span>
         </Link>
