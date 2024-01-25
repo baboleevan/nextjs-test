@@ -49,6 +49,8 @@ logs
 
 # production
 /build
+/out
+/dist
 
 # misc
 *.pem
@@ -68,5 +70,3 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
-

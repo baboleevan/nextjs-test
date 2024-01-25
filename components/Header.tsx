@@ -1,6 +1,6 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
-import styles from './header.module.css'
+import styles from './Header.module.css';
 
 const navItems = [
   { title: 'new' },
@@ -10,7 +10,7 @@ const navItems = [
   { title: 'show' },
   { title: 'jobs' },
   { title: 'submit' }
-]
+];
 
 export default function Header() {
   return (
@@ -38,5 +38,5 @@ export default function Header() {
         {/*</span>*/}
       </div>
     </header>
-  )
+  );
 }

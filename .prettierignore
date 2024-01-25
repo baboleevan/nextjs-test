@@ -1,0 +1,11 @@
+.idea
+.husky
+.next
+.git
+out
+build
+dist
+node_modules
+.prettierrc.js
+*.json
+*.d.ts

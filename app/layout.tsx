@@ -1,7 +1,10 @@
- import './globals.css'
-import Header from 'components/header'
-import SystemInfo from 'components/server-info'
-import Footer from 'components/footer'
+import { ReactNode } from 'react';
+
+import Header from '@/components/Header';
+import SystemInfo from '@/components/SystemInfo';
+import Footer from '@/components/Footer';
+
+import '@/app/globals.scss';
 
 export const metadata = {
   title: process.env.TITLE,
@@ -10,10 +13,16 @@ export const metadata = {
     index: true,
     follow: true
   }
+};
+
+console.log('TITLE', process.env.TITLE);
+console.log('NEXT_PUBLIC_TITLE', process.env.NEXT_PUBLIC_TITLE);
+
+interface Props {
+  children: ReactNode;
 }
 
-
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       <body>
@@ -27,6 +36,5 @@ export default function RootLayout({ children }) {
         </main>
       </body>
     </html>
-  )
+  );
 }
-

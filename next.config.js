@@ -1,3 +1,7 @@
+require('dotenv').config();
+
+const path = require('path');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async rewrites() {
@@ -6,14 +10,18 @@ const nextConfig = {
         source: '/',
         destination: '/news/1'
       }
-    ]
+    ];
+  },
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')]
   },
   env: {
-    TITLE: 'Hacker News',
+    TITLE: 'Hacker News'
   },
   reactStrictMode: true,
-  // swcMinify: false,
-  productionBrowserSourceMaps: false
-}
+  skipTrailingSlashRedirect: true,
+  productionBrowserSourceMaps: false,
+  output: 'export'
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

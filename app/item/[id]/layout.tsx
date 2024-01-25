@@ -1,26 +1,42 @@
-import { notFound } from 'next/navigation'
-import Story from 'components/story';
-import CommentForm from 'components/comment-form';
+import { ReactNode } from 'react';
+import { notFound } from 'next/navigation';
+
+import Story, { StoryProps } from '@/components/Story';
+import CommentForm from '@/components/CommentForm';
+
+import getItem from '@/lib/get-item';
+import fetchData from '@/lib/fetch-data';
+
 import styles from './layout.module.css';
-import getItem from 'lib/get-item'
-import fetchData from 'lib/fetch-data'
 
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  // Preload the top 10 stories
-  const storyIds = await fetchData('topstories')
-  return storyIds.slice(0, 10).map(id => ({
-    id: '' + id,
-  }));
+  const storyIds: any[] = await fetchData('topstories');
+  return storyIds.slice(0, 10).map(id => {
+    return {
+      id: String(id)
+    };
+  });
 }
 
-export default async function ItemPage({ params, children }) {
-  const { id } = params
+interface Props {
+  params: {
+    id: string;
+  };
+  children: ReactNode;
+}
+
+export default async function ItemPage({ params, children }: Props) {
+  const { id } = params;
   if (!id) {
-    notFound()
+    notFound();
   }
-  const story = await getItem(id)
+  const story: StoryProps | null = await getItem(id);
+  if (!story) {
+    notFound();
+  }
+
   return (
     <div className={styles.item}>
       <Story {...story} />

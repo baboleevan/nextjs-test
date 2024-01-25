@@ -2,11 +2,20 @@
 
 import { useState } from 'react';
 
-import timeAgo from '../lib/time-ago';
+import timeAgo from '@/lib/time-ago';
 
-import styles from './comment.module.css';
+import styles from './Comment.module.css';
 
-export default function Comment({ user, text, date, comments, commentsCount }) {
+interface CommentProps {
+  id: string;
+  user: string;
+  text: string;
+  date: string | number;
+  comments: CommentProps[];
+  commentsCount: number;
+}
+
+export default function Comment({ user, text, date, comments, commentsCount }: CommentProps) {
   const [toggled, setToggled] = useState(false);
 
   const toggle = () => setToggled(!toggled);
@@ -23,16 +32,12 @@ export default function Comment({ user, text, date, comments, commentsCount }) {
       {toggled
         ? null
         : [
-            <div
-              key="text"
-              className={styles.text}
-              dangerouslySetInnerHTML={{ __html: text }}
-            />,
+            <div key="text" className={styles.text} dangerouslySetInnerHTML={{ __html: text }} />,
             <div key="children" className={styles.children}>
-              {comments.map((comment) => (
+              {comments.map(comment => (
                 <Comment key={comment.id} {...comment} />
               ))}
-            </div>,
+            </div>
           ]}
     </div>
   );

@@ -1,7 +1,10 @@
-'use client'
+'use client';
 
-import ErrorPlaceholder from 'components/error-placeholder'
+import ErrorPlaceholder from '@/components/ErrorPlaceholder';
 
-export default function Error({ error }) {
-  return <ErrorPlaceholder error={error} />
+interface Props {
+  error: Error & { digest?: string };
+}
+export default function Error({ error }: Props) {
+  return <ErrorPlaceholder error={error} />;
 }
